@@ -25,6 +25,9 @@ public class Main_HelloWorld {
         System.out.println(sum(3.5, 2.5));
 
         System.out.println(sum(3));
+
+        System.out.println(iterativeFactorial(4));
+        System.out.println(calculateFactorial(4));
     }
 
     private static int sum(int a, int b) {
@@ -48,4 +51,34 @@ public class Main_HelloWorld {
             return 0;
         }
     }
+
+    // calculateFactorial(){}
+
+    private static int iterativeFactorial(int n) {
+
+        int factorial = 1;
+
+        for (int i = 1; i <= n; ++i) {
+            //factorial = factorial * i;
+            factorial *= i;
+        }
+
+        return factorial;
+    }
+
+    private static int calculateFactorial(int n) {
+
+        if (n != 0) {
+            return n * calculateFactorial(n - 1);
+        } else {
+            return 1;
+        }
+    }
+
 }
+
+// String
+// output , input (w3chool)
+
+// sum(1, 2, 7, 14, 54) = 1 + 2 + 7 + 14 + 54 ...
+// sum(int... numbers) => numbers == array
