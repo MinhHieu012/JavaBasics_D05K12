@@ -20,6 +20,9 @@ public class Main {
             System.out.println(students.get(i));
         }
 
+        // write to file "./resources/student-output.txt"
+        service.write("./resources/student-output.txt", students);
+
     }
 
 }

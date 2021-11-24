@@ -26,12 +26,33 @@ public class StudentDataService {
             String line = allLines.get(i);
             String[] data = line.split(",");
 
-            Student student = new Student(Integer.parseInt(data[0]) , data[1], data[2], data[3]);
+            Student student
+                    = new Student(Integer.parseInt(data[0]) , data[1].trim(), data[2].trim(), data[3].trim());
 
             students.add(student);
         }
 
         return students;
+
+    }
+
+
+    public void write(String path, List<Student> students) throws IOException {
+
+        // List<Student> => List<String>
+        List<String> list = new ArrayList<>();
+
+        for (int i = 0; i < students.size(); ++i) {
+
+            Student student = students.get(i);
+
+            list.add(student.toString());
+        }
+
+        // print to file
+        Path pathFileToWrite = Paths.get(path);
+
+        Files.write(pathFileToWrite, list);
 
     }
 

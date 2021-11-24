@@ -92,10 +92,10 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", name=" + name + ", klass=" + klass + ", address=" + address + '}';
+        return id + ", " + name + ", " + klass + ", " + address;
     }
 
-    
+
 
 
 }
