@@ -1,5 +1,6 @@
 package B14_MiniProject;
 
+import B14_MiniProject.controllers.StudentManager;
 import B14_MiniProject.models.Student;
 import B14_MiniProject.services.StudentDataService;
 import java.io.IOException;
@@ -15,13 +16,22 @@ public class Main {
 
         List<Student> students = service.read("./resources/student-input.txt");
 
+//        for (int i = 0; i < students.size(); ++i) {
+//
+//            System.out.println(students.get(i));
+//        }
+
+        // write to file "./resources/student-output.txt"
+//        service.write("./resources/student-output.txt", students);
+
+        StudentManager mng = new StudentManager();
+        students = mng.sortByName(students);
+
         for (int i = 0; i < students.size(); ++i) {
 
             System.out.println(students.get(i));
         }
 
-        // write to file "./resources/student-output.txt"
-        service.write("./resources/student-output.txt", students);
 
     }
 
@@ -34,4 +44,5 @@ public class Main {
 /*
 -- B1: Class
 -- B2: array (list) of students
+-- B3: logic
 */
