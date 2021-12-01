@@ -1,13 +1,38 @@
 package B14_MiniProject.controllers;
 
 import B14_MiniProject.models.Student;
+import B14_MiniProject.services.StudentDataService;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class StudentManager {
 
-    public void sortByName(List<Student> list) {
+    private List<Student> list;
+    private final String pathFileToInput; // "./resources/student-input.txt"
+    private StudentDataService service;
+
+    public StudentManager(String pathFileToInput) {
+
+        this.pathFileToInput = pathFileToInput;
+
+        this.service = new StudentDataService();
+
+        try {
+
+            this.list = service.read(pathFileToInput);
+
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+        }
+    }
+
+
+
+
+    public void sortByName() {
 
         Collections.sort(
                 list,
@@ -16,7 +41,7 @@ public class StudentManager {
 
     }
 
-    public void sortById(List<Student> list) {
+    public void sortById() {
 
         Collections.sort(
                 list,
@@ -25,7 +50,7 @@ public class StudentManager {
 
     }
 
-    public Student findByName(List<Student> list, String name) {
+    public Student findByName(String name) {
 
         for (Student s: list) {
 
@@ -37,7 +62,7 @@ public class StudentManager {
         return null;
     }
 
-    public Student findById(List<Student> list, int id) {
+    public Student findById(int id) {
 
         for (Student s: list) {
 
@@ -49,31 +74,38 @@ public class StudentManager {
         return null;
     }
 
-    public void addStudent(List<Student> list, Scanner sc) {
+    public void addStudent(Scanner sc) {
 
         list.add(new Student().input(sc));
     }
 
-    public void editStudent(List<Student> list, Scanner sc) {
+    public void editStudent(Scanner sc) {
 
         System.out.println("Enter id: ");
 
         int id = sc.nextInt();
         sc.nextLine();// ignore new line
 
-        Student student = findById(list, id);
+        Student student = findById(id);
         student.edit(sc);
     }
 
-    public void deleteStudent(List<Student> list, Scanner sc) {
+    public void deleteStudent(Scanner sc) {
 
         System.out.println("Enter id: ");
 
         int id = sc.nextInt();
         sc.nextLine();
 
-        Student student = findById(list, id);
+        Student student = findById(id);
         list.remove(student);
+    }
+
+    public void showAll() {
+
+        for (Student s: list) {
+            System.out.println(s.toString());
+        }
     }
 
 

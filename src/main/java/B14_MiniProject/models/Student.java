@@ -64,6 +64,8 @@ public class Student {
         this.address = sc.nextLine();
     }
 
+
+
     // getters, setters
 
     public int getId() {
