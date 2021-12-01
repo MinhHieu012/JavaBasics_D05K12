@@ -1,33 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-
 package test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author huynq
- */
 public class NewMain {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
 
- System.out.println("In fr sdfd");
+//        int a = 41;
+//        char c = (char) a;
+//        System.out.println(Character.valueOf(c));
 
+//        char c = '[';
+//        int a = Character.getNumericValue(c);
+//        System.out.println(a);
+
+        String str = "(((}{]][[)";
+        char[] arr = str.toCharArray();
+        for (var c: arr) {
+            System.out.println(c);
+        }
 
     }
-
-    public static void main(char[] args) {
-
-        System.out.println("a");
-
-}
 
 }

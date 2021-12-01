@@ -25,13 +25,17 @@ public class Main {
 //        service.write("./resources/student-output.txt", students);
 
         StudentManager mng = new StudentManager();
-        students = mng.sortByName(students);
+        //mng.sortByName(students);
+        // mng.sortById(students);
+//        for (int i = 0; i < students.size(); ++i) {
+//
+//            System.out.println(students.get(i));
+//        }
+        //Student findByName = mng.findByName(students, "Nguyen Van A");
 
-        for (int i = 0; i < students.size(); ++i) {
+        Student findById = mng.findById(students, 1003);
 
-            System.out.println(students.get(i));
-        }
-
+        System.out.println(findById);
 
     }
 

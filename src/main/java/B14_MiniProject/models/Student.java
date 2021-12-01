@@ -4,6 +4,8 @@
  */
 package B14_MiniProject.models;
 
+import java.util.Scanner;
+
 /**
  *
  * @author huynq
@@ -30,6 +32,36 @@ public class Student {
         this.name = name;
         this.klass = klass;
         this.address = address;
+    }
+
+    public Student input(Scanner sc) {
+
+        System.out.println("Enter student id: ");
+        int id = sc.nextInt();
+        sc.nextLine(); // ignore new line
+
+        System.out.println("Enter full name: ");
+        String name = sc.nextLine();
+
+        System.out.println("Enter class: ");
+        String klass = sc.nextLine();
+
+        System.out.println("Enter address: ");
+        String address = sc.nextLine();
+
+        return new Student(id, name, klass, address);
+    }
+
+    public void edit(Scanner sc) {
+
+        System.out.println("Enter new name: ");
+        this.name = sc.nextLine();
+
+        System.out.println("Enter new class: ");
+        this.klass = sc.nextLine();
+
+        System.out.println("Enter new address: ");
+        this.address = sc.nextLine();
     }
 
     // getters, setters
